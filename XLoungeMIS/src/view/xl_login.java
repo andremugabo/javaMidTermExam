@@ -4,6 +4,13 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import model.*;
+import dao.*;
+
 /**
  *
  * @author A.M
@@ -31,10 +38,10 @@ public class xl_login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jtxtx_username = new javax.swing.JTextField();
+        jPasswordFields = new javax.swing.JPasswordField();
+        jbtn_login = new javax.swing.JButton();
+        jCheckBox_showpassword = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -51,7 +58,7 @@ public class xl_login extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Username:");
+        jLabel3.setText("Phone Number:");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -61,24 +68,34 @@ public class xl_login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password:");
 
-        jTextField1.setBackground(new java.awt.Color(215, 221, 232));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 102, 102)));
-        jTextField1.setOpaque(isOpaque());
+        jtxtx_username.setBackground(new java.awt.Color(215, 221, 232));
+        jtxtx_username.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jtxtx_username.setForeground(new java.awt.Color(51, 51, 51));
+        jtxtx_username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 102, 102)));
+        jtxtx_username.setOpaque(isOpaque());
 
-        jPasswordField1.setBackground(new java.awt.Color(215, 221, 232));
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 102, 102)));
+        jPasswordFields.setBackground(new java.awt.Color(215, 221, 232));
+        jPasswordFields.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jPasswordFields.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordFields.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(0, 102, 102)));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Login");
+        jbtn_login.setBackground(new java.awt.Color(0, 102, 102));
+        jbtn_login.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jbtn_login.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_login.setText("Login");
+        jbtn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_loginActionPerformed(evt);
+            }
+        });
 
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Show Password");
+        jCheckBox_showpassword.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox_showpassword.setText("Show Password");
+        jCheckBox_showpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox_showpasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -86,19 +103,19 @@ public class xl_login extends javax.swing.JFrame {
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addGap(0, 39, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jtxtx_username, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPasswordFields, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
                         .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCheckBox_showpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -110,16 +127,16 @@ public class xl_login extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtx_username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel2)
                 .addGap(8, 8, 8)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPasswordFields, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(jCheckBox_showpassword)
                 .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addComponent(jbtn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         kGradientPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 350, 450));
@@ -145,6 +162,97 @@ public class xl_login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCheckBox_showpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_showpasswordActionPerformed
+        // TODO add your handling code here:
+        if(jCheckBox_showpassword.isSelected())
+        {
+        jPasswordFields.setEchoChar((char)0);
+        }
+        else
+        {
+        jPasswordFields.setEchoChar('\u25cf');
+        }
+    }//GEN-LAST:event_jCheckBox_showpasswordActionPerformed
+
+    
+     public static String getMd5(String input)
+    {
+        try {
+ 
+            // Static getInstance method is called with hashing MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+ 
+            // digest() method is called to calculate message digest
+            // of an input digest() return array of byte
+            byte[] messageDigest = md.digest(input.getBytes());
+ 
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+ 
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            return hashtext;
+        }
+ 
+        // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    private void jbtn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_loginActionPerformed
+        // TODO add your handling code here:
+        SessionHolder sHolder = new SessionHolder();
+        String password =new String(jPasswordFields.getPassword());
+        if(jtxtx_username.getText().trim().isEmpty() || password.length()== 0 )
+        {
+            JOptionPane.showMessageDialog(this,"Some Field are Empty ","Error",1);
+        }
+        else
+        {
+            Users userObj = new Users();
+            Usersdao userObjDao = new Usersdao();
+            
+            userObj.setU_phone(jtxtx_username.getText());
+            userObj.setU_password(getMd5(password));
+            
+            
+            Users theUser = userObjDao.checkIfUserExits(userObj);
+            
+            if(theUser != null)
+            {
+                String role = theUser.getU_role();
+                if(role.equalsIgnoreCase("Admin"))
+                {                
+                JOptionPane.showMessageDialog(this,role);
+                sHolder.setUserName(role);
+                DashboardAdmin dshA = new DashboardAdmin();
+                dshA.setVisible(true);
+                this.setVisible(false);
+                }
+                else
+                {
+                 JOptionPane.showMessageDialog(this,role);
+                 DashboardWaiter dshw = new DashboardWaiter();
+                 dshw.setVisible(true);
+                 this.setVisible(false);
+                }
+                
+            }
+            else
+            {
+                JOptionPane.showConfirmDialog(this,"WRONG CREDENTIAL","Error",1);
+            }
+            
+            
+            
+            
+        }
+    }//GEN-LAST:event_jbtn_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,15 +290,15 @@ public class xl_login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox_showpassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordFields;
+    private javax.swing.JButton jbtn_login;
+    private javax.swing.JTextField jtxtx_username;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
     // End of variables declaration//GEN-END:variables

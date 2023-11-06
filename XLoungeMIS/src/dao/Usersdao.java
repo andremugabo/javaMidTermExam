@@ -14,6 +14,9 @@ public class Usersdao {
         PreparedStatement pst = null;
         String query = "";
         int rowAffected;
+        ResultSet rs = null;
+        Users theUSer = new Users();
+        boolean flag = false;
 
     public Usersdao() {
     }
@@ -41,7 +44,7 @@ public class Usersdao {
             }
             else
             {
-                return "OPERATION FAILED";
+                return "CREATING USER FAILED";
             }
         } 
         catch (Exception e)
@@ -55,24 +58,53 @@ public class Usersdao {
     
     
     
-    public boolean checkIfUserExits(Users usersObj)
+    public Users checkIfUserExits(Users usersObj)
     { 
         try 
         {
             con = DriverManager.getConnection(db_url, username, password);
-            query = "select * from  users u_phone = ? and u_password = ? and u_status = 1";
+            query = "select count(*) as user from  users where u_phone = ? and u_password = ? and u_status = 1";
             pst = con.prepareStatement(query);
             pst.setString(1,usersObj.getU_phone());
             pst.setString(2,usersObj.getU_password());
             
-            rowAffected =pst.executeUpdate();
-            con.close();
-            return rowAffected >= 1;
+            rs =pst.executeQuery();
+            if(rs.next())
+            {
+               int count = rs.getInt("user");
+               if(count >= 1){
+                    query = "select u_role  from  users where u_phone = ? and u_password = ? and u_status = 1";
+                    pst = con.prepareStatement(query);
+                    pst.setString(1,usersObj.getU_phone());
+                    pst.setString(2,usersObj.getU_password());
+                    ResultSet result = null;
+                    result =pst.executeQuery();
+                    
+                    while (result.next()) {                       
+                       theUSer.setU_role(result.getString("u_role")); 
+                       flag = true;
+                   }
+                   con.close();  
+                   
+                  
+               }else
+               {
+                   return null;
+               }
+            }
+             if(flag)
+                   {
+                     return theUSer;
+                   }
+             else{
+                       return null;
+                   }
         } 
+       
         catch (Exception e)
         {
             e.printStackTrace();
-            return false;
+            return null;
         }
     
         
