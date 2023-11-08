@@ -226,17 +226,20 @@ public class xl_login extends javax.swing.JFrame {
             if(theUser != null)
             {
                 String role = theUser.getU_role();
-                if(role.equalsIgnoreCase("Admin"))
+                String usernames = theUser.getU_names();
+                int id = theUser.getU_id();
+                if(role.equalsIgnoreCase("Admin")|| role.equalsIgnoreCase("Manager"))
                 {                
-                JOptionPane.showMessageDialog(this,role);
-                sHolder.setUserName(role);
+                JOptionPane.showMessageDialog(this,"Welcome to X-Lounge MIS");
+                sHolder.setUserName(usernames);
                 DashboardAdmin dshA = new DashboardAdmin();
                 dshA.setVisible(true);
                 this.setVisible(false);
                 }
                 else
                 {
-                 JOptionPane.showMessageDialog(this,role);
+                 JOptionPane.showMessageDialog(this,"Welcome to X-Lounge MIS");
+                 sHolder.setUserName(usernames);
                  DashboardWaiter dshw = new DashboardWaiter();
                  dshw.setVisible(true);
                  this.setVisible(false);

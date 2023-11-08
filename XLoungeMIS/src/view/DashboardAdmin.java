@@ -34,7 +34,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jbtn_user = new javax.swing.JButton();
         jbt_product = new javax.swing.JButton();
         jbtn_session = new javax.swing.JButton();
-        jbtn_stock = new javax.swing.JButton();
         jbtn_order = new javax.swing.JButton();
         jbtn_setting = new javax.swing.JButton();
         kGradientPanel2 = new keeptoo.KGradientPanel();
@@ -43,9 +42,57 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Dashboard = new javax.swing.JPanel();
         User = new javax.swing.JPanel();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jtxt_names = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jtxt_phone = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jtxt_email = new javax.swing.JTextField();
+        jtxt_txtcpassword = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jtxt_password = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jcbox_role = new javax.swing.JComboBox<>();
+        jbtn_edit = new javax.swing.JButton();
+        jbtn_delete = new javax.swing.JButton();
+        jbt_register = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtable_user = new javax.swing.JTable();
         Products = new javax.swing.JPanel();
+        kGradientPanel4 = new keeptoo.KGradientPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jcbox_producttype = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jcbox_productcategory = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jtxt_productname = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jtxt_purchasing_price = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jtxt_product_selling_price = new javax.swing.JTextField();
+        jbt_registerProduct = new javax.swing.JButton();
+        jbtn_editProduct = new javax.swing.JButton();
+        jbtn_updateprice = new javax.swing.JButton();
+        jbtn_deleteProduct1 = new javax.swing.JButton();
+        jtxt_product_quantity = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jbtn_search = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         Sessions = new javax.swing.JPanel();
-        Stocks = new javax.swing.JPanel();
+        kGradientPanel5 = new keeptoo.KGradientPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jlb_current_session = new javax.swing.JLabel();
+        jbt_create_session = new javax.swing.JButton();
+        jbt_create_session1 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         Order = new javax.swing.JPanel();
         Settings = new javax.swing.JPanel();
         Reports = new javax.swing.JPanel();
@@ -94,7 +141,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 jbtn_dashboardMouseClicked(evt);
             }
         });
-        kGradientPanel1.add(jbtn_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 200, 40));
+        kGradientPanel1.add(jbtn_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 200, 40));
 
         jbtn_user.setBackground(new java.awt.Color(0, 102, 102));
         jbtn_user.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -108,7 +155,12 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 jbtn_userMouseClicked(evt);
             }
         });
-        kGradientPanel1.add(jbtn_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 200, 40));
+        jbtn_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_userActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(jbtn_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 200, 40));
 
         jbt_product.setBackground(new java.awt.Color(0, 102, 102));
         jbt_product.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -122,7 +174,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 jbt_productMouseClicked(evt);
             }
         });
-        kGradientPanel1.add(jbt_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 200, 40));
+        kGradientPanel1.add(jbt_product, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 200, 40));
 
         jbtn_session.setBackground(new java.awt.Color(0, 102, 102));
         jbtn_session.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -136,21 +188,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 jbtn_sessionMouseClicked(evt);
             }
         });
-        kGradientPanel1.add(jbtn_session, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 200, 40));
-
-        jbtn_stock.setBackground(new java.awt.Color(0, 102, 102));
-        jbtn_stock.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jbtn_stock.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_stock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Scan Stock_20px.png"))); // NOI18N
-        jbtn_stock.setText("Sells Stock");
-        jbtn_stock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jbtn_stock.setIconTextGap(3);
-        jbtn_stock.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbtn_stockMouseClicked(evt);
-            }
-        });
-        kGradientPanel1.add(jbtn_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 200, 40));
+        kGradientPanel1.add(jbtn_session, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 200, 40));
 
         jbtn_order.setBackground(new java.awt.Color(0, 102, 102));
         jbtn_order.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -170,7 +208,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jbtn_setting.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbtn_setting.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Settings_20px.png"))); // NOI18N
-        jbtn_setting.setText("Setting");
+        jbtn_setting.setText("Settings");
         jbtn_setting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jbtn_setting.setIconTextGap(3);
         jbtn_setting.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,111 +231,466 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jbtn_logout.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbtn_logout.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_logout.setText("Logout");
-        kGradientPanel2.add(jbtn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 10, -1, -1));
+        jbtn_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_logoutActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(jbtn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
+
+        jTabbedPane1.setBackground(new java.awt.Color(0, 102, 102));
+        jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout DashboardLayout = new javax.swing.GroupLayout(Dashboard);
         Dashboard.setLayout(DashboardLayout);
         DashboardLayout.setHorizontalGroup(
             DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 983, Short.MAX_VALUE)
+            .addGap(0, 888, Short.MAX_VALUE)
         );
         DashboardLayout.setVerticalGroup(
             DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab1", Dashboard);
+        jTabbedPane1.addTab("Dashboard", Dashboard);
 
-        javax.swing.GroupLayout UserLayout = new javax.swing.GroupLayout(User);
-        User.setLayout(UserLayout);
-        UserLayout.setHorizontalGroup(
-            UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+        User.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kGradientPanel3.setkEndColor(new java.awt.Color(32, 58, 67));
+        kGradientPanel3.setkStartColor(new java.awt.Color(44, 83, 100));
+        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Users ");
+        kGradientPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 110, 30));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Names:");
+        kGradientPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 60, -1));
+
+        jtxt_names.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_names.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_names.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_names.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_names.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel3.add(jtxt_names, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 300, 30));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Phone:");
+        kGradientPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 60, -1));
+
+        jtxt_phone.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_phone.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_phone.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_phone.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_phone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel3.add(jtxt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 300, 30));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Email:");
+        kGradientPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 60, -1));
+
+        jtxt_email.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_email.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_email.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel3.add(jtxt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 300, 30));
+
+        jtxt_txtcpassword.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_txtcpassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_txtcpassword.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_txtcpassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_txtcpassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel3.add(jtxt_txtcpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 300, 30));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Role:");
+        kGradientPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 130, -1));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Password");
+        kGradientPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 60, -1));
+
+        jtxt_password.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_password.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_password.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel3.add(jtxt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 300, 30));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Confirm Password:");
+        kGradientPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 130, -1));
+
+        jcbox_role.setBackground(new java.awt.Color(0, 102, 102));
+        jcbox_role.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jcbox_role.setForeground(new java.awt.Color(255, 255, 255));
+        jcbox_role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Manager", "Waiter", " " }));
+        jcbox_role.setOpaque(true);
+        kGradientPanel3.add(jcbox_role, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 160, -1));
+
+        jbtn_edit.setBackground(new java.awt.Color(255, 204, 51));
+        jbtn_edit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_edit.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Edit_20px.png"))); // NOI18N
+        jbtn_edit.setText("Edit");
+        kGradientPanel3.add(jbtn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 80, 30));
+
+        jbtn_delete.setBackground(new java.awt.Color(153, 0, 51));
+        jbtn_delete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_delete.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete_20px.png"))); // NOI18N
+        jbtn_delete.setText("Delete");
+        kGradientPanel3.add(jbtn_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 100, 30));
+
+        jbt_register.setBackground(new java.awt.Color(0, 102, 102));
+        jbt_register.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbt_register.setForeground(new java.awt.Color(255, 255, 255));
+        jbt_register.setText("Register");
+        jbt_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_registerActionPerformed(evt);
+            }
+        });
+        kGradientPanel3.add(jbt_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 80, 30));
+
+        User.add(kGradientPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 490));
+
+        jtable_user.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jtable_user.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "#", "Names", "Phone", "Email", "Role"
+            }
+        ));
+        jScrollPane1.setViewportView(jtable_user);
+        if (jtable_user.getColumnModel().getColumnCount() > 0) {
+            jtable_user.getColumnModel().getColumn(0).setPreferredWidth(2);
+        }
+
+        User.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 550, 490));
+
+        jTabbedPane1.addTab("Users", User);
+
+        Products.setBackground(new java.awt.Color(255, 255, 255));
+
+        kGradientPanel4.setkEndColor(new java.awt.Color(32, 58, 67));
+        kGradientPanel4.setkStartColor(new java.awt.Color(44, 83, 100));
+        kGradientPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
-        UserLayout.setVerticalGroup(
-            UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab2", User);
+        kGradientPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 300, 40));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Products");
+        kGradientPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 20));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Product Type:");
+        kGradientPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 130, -1));
+
+        jcbox_producttype.setBackground(new java.awt.Color(0, 102, 102));
+        jcbox_producttype.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jcbox_producttype.setForeground(new java.awt.Color(255, 255, 255));
+        jcbox_producttype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DRINK", "FOOD" }));
+        jcbox_producttype.setOpaque(true);
+        kGradientPanel4.add(jcbox_producttype, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 160, -1));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Product  Category:");
+        kGradientPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 130, -1));
+
+        jcbox_productcategory.setBackground(new java.awt.Color(0, 102, 102));
+        jcbox_productcategory.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jcbox_productcategory.setForeground(new java.awt.Color(255, 255, 255));
+        jcbox_productcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BEER", "SOFT DRINK", "LIQUOR" }));
+        jcbox_productcategory.setOpaque(true);
+        kGradientPanel4.add(jcbox_productcategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 160, -1));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Product:");
+        kGradientPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 60, -1));
+
+        jtxt_productname.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_productname.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_productname.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_productname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_productname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel4.add(jtxt_productname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 500, 30));
+
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Purchasing Price:");
+        kGradientPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 140, -1));
+
+        jtxt_purchasing_price.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_purchasing_price.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_purchasing_price.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_purchasing_price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_purchasing_price.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel4.add(jtxt_purchasing_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 300, 30));
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Selling Price:");
+        kGradientPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 130, -1));
+
+        jtxt_product_selling_price.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_product_selling_price.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_product_selling_price.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_product_selling_price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_product_selling_price.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel4.add(jtxt_product_selling_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 300, 30));
+
+        jbt_registerProduct.setBackground(new java.awt.Color(0, 102, 102));
+        jbt_registerProduct.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbt_registerProduct.setForeground(new java.awt.Color(255, 255, 255));
+        jbt_registerProduct.setText("Register");
+        jbt_registerProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_registerProductActionPerformed(evt);
+            }
+        });
+        kGradientPanel4.add(jbt_registerProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 80, 30));
+
+        jbtn_editProduct.setBackground(new java.awt.Color(255, 204, 51));
+        jbtn_editProduct.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_editProduct.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_editProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Edit_20px.png"))); // NOI18N
+        jbtn_editProduct.setText("Edit");
+        kGradientPanel4.add(jbtn_editProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 80, 30));
+
+        jbtn_updateprice.setBackground(new java.awt.Color(51, 153, 0));
+        jbtn_updateprice.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_updateprice.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_updateprice.setText("Update Price");
+        kGradientPanel4.add(jbtn_updateprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 280, 30));
+
+        jbtn_deleteProduct1.setBackground(new java.awt.Color(153, 0, 51));
+        jbtn_deleteProduct1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_deleteProduct1.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_deleteProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete_20px.png"))); // NOI18N
+        jbtn_deleteProduct1.setText("Delete");
+        kGradientPanel4.add(jbtn_deleteProduct1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 100, 30));
+
+        jtxt_product_quantity.setBackground(new java.awt.Color(0, 102, 102));
+        jtxt_product_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jtxt_product_quantity.setForeground(new java.awt.Color(255, 255, 255));
+        jtxt_product_quantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtxt_product_quantity.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel4.add(jtxt_product_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 280, 30));
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Product Quantity:");
+        kGradientPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 130, -1));
+
+        jbtn_search.setBackground(new java.awt.Color(255, 153, 0));
+        jbtn_search.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_search.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_20px.png"))); // NOI18N
+        jbtn_search.setText("Search");
+        kGradientPanel4.add(jbtn_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 280, 30));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "#", "Product Type", "Product Category", "Products Name", "Quantity", "Purchasing Price", "Selling Price"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(2);
+        }
 
         javax.swing.GroupLayout ProductsLayout = new javax.swing.GroupLayout(Products);
         Products.setLayout(ProductsLayout);
         ProductsLayout.setHorizontalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addComponent(kGradientPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+            .addComponent(jScrollPane3)
         );
         ProductsLayout.setVerticalGroup(
             ProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGroup(ProductsLayout.createSequentialGroup()
+                .addComponent(kGradientPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab3", Products);
+        jTabbedPane1.addTab("Products", Products);
+
+        kGradientPanel5.setkEndColor(new java.awt.Color(44, 83, 100));
+        kGradientPanel5.setkStartColor(new java.awt.Color(32, 58, 67));
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Current Session:");
+
+        jlb_current_session.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jlb_current_session.setForeground(new java.awt.Color(255, 255, 255));
+        jlb_current_session.setText("Session/Nov-08-2023/000001");
+
+        jbt_create_session.setBackground(new java.awt.Color(0, 102, 102));
+        jbt_create_session.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbt_create_session.setForeground(new java.awt.Color(255, 255, 255));
+        jbt_create_session.setText("Create Session");
+        jbt_create_session.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_create_sessionActionPerformed(evt);
+            }
+        });
+
+        jbt_create_session1.setBackground(new java.awt.Color(255, 0, 102));
+        jbt_create_session1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbt_create_session1.setForeground(new java.awt.Color(255, 255, 255));
+        jbt_create_session1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete_20px.png"))); // NOI18N
+        jbt_create_session1.setText("Delete Session");
+        jbt_create_session1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_create_session1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Users ");
+
+        javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
+        kGradientPanel5.setLayout(kGradientPanel5Layout);
+        kGradientPanel5Layout.setHorizontalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbt_create_session1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbt_create_session, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jlb_current_session, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        kGradientPanel5Layout.setVerticalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel5Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jlb_current_session))
+                .addGap(61, 61, 61)
+                .addComponent(jbt_create_session, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(jbt_create_session1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Created By", "Reference", "Date", "Status"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout SessionsLayout = new javax.swing.GroupLayout(Sessions);
         Sessions.setLayout(SessionsLayout);
         SessionsLayout.setHorizontalGroup(
             SessionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGroup(SessionsLayout.createSequentialGroup()
+                .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         SessionsLayout.setVerticalGroup(
             SessionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGroup(SessionsLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 61, Short.MAX_VALUE))
+            .addComponent(kGradientPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab4", Sessions);
-
-        javax.swing.GroupLayout StocksLayout = new javax.swing.GroupLayout(Stocks);
-        Stocks.setLayout(StocksLayout);
-        StocksLayout.setHorizontalGroup(
-            StocksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
-        );
-        StocksLayout.setVerticalGroup(
-            StocksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab5", Stocks);
+        jTabbedPane1.addTab("Sessions", Sessions);
 
         javax.swing.GroupLayout OrderLayout = new javax.swing.GroupLayout(Order);
         Order.setLayout(OrderLayout);
         OrderLayout.setHorizontalGroup(
             OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGap(0, 888, Short.MAX_VALUE)
         );
         OrderLayout.setVerticalGroup(
             OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab6", Order);
+        jTabbedPane1.addTab("Orders", Order);
 
         javax.swing.GroupLayout SettingsLayout = new javax.swing.GroupLayout(Settings);
         Settings.setLayout(SettingsLayout);
         SettingsLayout.setHorizontalGroup(
             SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGap(0, 888, Short.MAX_VALUE)
         );
         SettingsLayout.setVerticalGroup(
             SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab7", Settings);
+        jTabbedPane1.addTab("Settings", Settings);
 
         javax.swing.GroupLayout ReportsLayout = new javax.swing.GroupLayout(Reports);
         Reports.setLayout(ReportsLayout);
         ReportsLayout.setHorizontalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGap(0, 888, Short.MAX_VALUE)
         );
         ReportsLayout.setVerticalGroup(
             ReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab8", Reports);
+        jTabbedPane1.addTab("Reports", Reports);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,7 +700,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -348,11 +741,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_jbtn_sessionMouseClicked
 
-    private void jbtn_stockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_stockMouseClicked
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_jbtn_stockMouseClicked
-
     private void jbtn_orderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_orderMouseClicked
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(5);
@@ -367,6 +755,49 @@ public class DashboardAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jbtn_reportMouseClicked
+
+    private void jbtn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_userActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_userActionPerformed
+
+    private void jbtn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_logoutActionPerformed
+        // TODO add your handling code here:
+        String username = "";
+        String role = "";
+        int id = 0;
+        
+        SessionHolder.setUserID(id);
+        SessionHolder.setUserName(username);
+        SessionHolder.setUserRole(role);
+        this.setVisible(false);
+        xl_login xlg = new xl_login();
+        xlg.setVisible(true);
+    }//GEN-LAST:event_jbtn_logoutActionPerformed
+
+    private void jbt_create_session1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_create_session1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_create_session1ActionPerformed
+
+    private void jbt_create_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_create_sessionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_create_sessionActionPerformed
+
+    private void jbt_registerProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_registerProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_registerProductActionPerformed
+
+    private void jbt_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_registerActionPerformed
+        // TODO add your handling code here:
+        if(jtxt_names.getText().trim().isEmpty())
+        {
+
+        }
+        else if(jtxt_phone.getText().trim().isEmpty())
+        {
+
+        }else if(jtxt_email.getText().trim().isEmpty()){}
+
+    }//GEN-LAST:event_jbt_registerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,21 +841,68 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel Reports;
     private javax.swing.JPanel Sessions;
     private javax.swing.JPanel Settings;
-    private javax.swing.JPanel Stocks;
     private javax.swing.JPanel User;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JButton jbt_create_session;
+    private javax.swing.JButton jbt_create_session1;
     private javax.swing.JButton jbt_product;
+    private javax.swing.JButton jbt_register;
+    private javax.swing.JButton jbt_registerProduct;
     private javax.swing.JButton jbtn_dashboard;
+    private javax.swing.JButton jbtn_delete;
+    private javax.swing.JButton jbtn_deleteProduct1;
+    private javax.swing.JButton jbtn_edit;
+    private javax.swing.JButton jbtn_editProduct;
     private javax.swing.JButton jbtn_logout;
     private javax.swing.JButton jbtn_order;
     private javax.swing.JButton jbtn_report;
+    private javax.swing.JButton jbtn_search;
     private javax.swing.JButton jbtn_session;
     private javax.swing.JButton jbtn_setting;
-    private javax.swing.JButton jbtn_stock;
+    private javax.swing.JButton jbtn_updateprice;
     private javax.swing.JButton jbtn_user;
+    private javax.swing.JComboBox<String> jcbox_productcategory;
+    private javax.swing.JComboBox<String> jcbox_producttype;
+    private javax.swing.JComboBox<String> jcbox_role;
     private javax.swing.JLabel jlabel_Name;
+    private javax.swing.JLabel jlb_current_session;
+    private javax.swing.JTable jtable_user;
+    private javax.swing.JTextField jtxt_email;
+    private javax.swing.JTextField jtxt_names;
+    private javax.swing.JTextField jtxt_password;
+    private javax.swing.JTextField jtxt_phone;
+    private javax.swing.JTextField jtxt_product_quantity;
+    private javax.swing.JTextField jtxt_product_selling_price;
+    private javax.swing.JTextField jtxt_productname;
+    private javax.swing.JTextField jtxt_purchasing_price;
+    private javax.swing.JTextField jtxt_txtcpassword;
     private keeptoo.KGradientPanel kGradientPanel1;
     private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
+    private keeptoo.KGradientPanel kGradientPanel4;
+    private keeptoo.KGradientPanel kGradientPanel5;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,7 @@ package model;
 
 
 public class Users {
+    private Integer u_id;
     private String u_names;
     private String u_phone;
     private String u_email;
@@ -12,13 +13,23 @@ public class Users {
     public Users() {
     }
 
-    public Users(String u_names, String u_phone, String u_email, String u_password, String u_role) {
+    public Users(Integer u_id, String u_names, String u_phone, String u_email, String u_password, String u_role) {
+        this.u_id = u_id;
         this.u_names = u_names;
         this.u_phone = u_phone;
         this.u_email = u_email;
         this.u_password = u_password;
         this.u_role = u_role;
     }
+
+    public Integer getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(Integer u_id) {
+        this.u_id = u_id;
+    }
+
 
     public String getU_names() {
         return u_names;

@@ -12,6 +12,17 @@ package view;
 public  class SessionHolder {
   static  Integer  userID;
   static  String userName;
+  static  String userRole; 
+  
+  
+
+    public static void setUserRole(String userRole) {
+        SessionHolder.userRole = userRole;
+    }
+
+    public static String getUserRole() {
+        return userRole;
+    }
 
     public static Integer getUserID() {
         return userID;

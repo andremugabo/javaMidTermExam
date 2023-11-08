@@ -73,15 +73,17 @@ public class Usersdao {
             {
                int count = rs.getInt("user");
                if(count >= 1){
-                    query = "select u_role  from  users where u_phone = ? and u_password = ? and u_status = 1";
+                    query = "select u_id,u_name,u_role  from  users where u_phone = ? and u_password = ? and u_status = 1";
                     pst = con.prepareStatement(query);
                     pst.setString(1,usersObj.getU_phone());
                     pst.setString(2,usersObj.getU_password());
                     ResultSet result = null;
-                    result =pst.executeQuery();
+                    result = pst.executeQuery();
                     
                     while (result.next()) {                       
                        theUSer.setU_role(result.getString("u_role")); 
+                       theUSer.setU_id(result.getInt("u_id"));
+                       theUSer.setU_names(result.getString("u_name"));
                        flag = true;
                    }
                    con.close();  
@@ -106,11 +108,6 @@ public class Usersdao {
             e.printStackTrace();
             return null;
         }
-    
-        
-        
-        
-    
     }
     
     
