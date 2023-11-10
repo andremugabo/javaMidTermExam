@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package view;
 
-/**
- *
- * @author A.M
- */
+package view;
+import dao.*;
+import java.text.SimpleDateFormat;
+import model.*;
+import java.util.*;
+import javax.swing.JOptionPane;
+
 public class DashboardAdmin extends javax.swing.JFrame {
 
     /**
@@ -82,6 +79,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jtxt_product_quantity = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jbtn_search = new javax.swing.JButton();
+        jbtn_updateprice1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         Sessions = new javax.swing.JPanel();
@@ -89,11 +87,18 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jlb_current_session = new javax.swing.JLabel();
         jbt_create_session = new javax.swing.JButton();
-        jbt_create_session1 = new javax.swing.JButton();
+        jbt_close_session1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Order = new javax.swing.JPanel();
+        kGradientPanel6 = new keeptoo.KGradientPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jbtn_create_order = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         Settings = new javax.swing.JPanel();
         Reports = new javax.swing.JPanel();
 
@@ -214,6 +219,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jbtn_setting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbtn_settingMouseClicked(evt);
+            }
+        });
+        jbtn_setting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_settingActionPerformed(evt);
             }
         });
         kGradientPanel1.add(jbtn_setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 200, 40));
@@ -415,9 +425,18 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jcbox_producttype.setBackground(new java.awt.Color(0, 102, 102));
         jcbox_producttype.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jcbox_producttype.setForeground(new java.awt.Color(255, 255, 255));
-        jcbox_producttype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DRINK", "FOOD" }));
         jcbox_producttype.setOpaque(true);
-        kGradientPanel4.add(jcbox_producttype, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 160, -1));
+        jcbox_producttype.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbox_producttypeItemStateChanged(evt);
+            }
+        });
+        jcbox_producttype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbox_producttypeActionPerformed(evt);
+            }
+        });
+        kGradientPanel4.add(jcbox_producttype, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 220, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -427,9 +446,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jcbox_productcategory.setBackground(new java.awt.Color(0, 102, 102));
         jcbox_productcategory.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jcbox_productcategory.setForeground(new java.awt.Color(255, 255, 255));
-        jcbox_productcategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BEER", "SOFT DRINK", "LIQUOR" }));
+        jcbox_productcategory.setToolTipText("");
         jcbox_productcategory.setOpaque(true);
-        kGradientPanel4.add(jcbox_productcategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 160, -1));
+        kGradientPanel4.add(jcbox_productcategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 220, -1));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -441,31 +460,31 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jtxt_productname.setForeground(new java.awt.Color(255, 255, 255));
         jtxt_productname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtxt_productname.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        kGradientPanel4.add(jtxt_productname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 500, 30));
+        kGradientPanel4.add(jtxt_productname, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 550, 30));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Purchasing Price:");
-        kGradientPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 140, -1));
+        kGradientPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 140, -1));
 
         jtxt_purchasing_price.setBackground(new java.awt.Color(0, 102, 102));
         jtxt_purchasing_price.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtxt_purchasing_price.setForeground(new java.awt.Color(255, 255, 255));
         jtxt_purchasing_price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtxt_purchasing_price.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        kGradientPanel4.add(jtxt_purchasing_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 300, 30));
+        kGradientPanel4.add(jtxt_purchasing_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 300, 30));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Selling Price:");
-        kGradientPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 130, -1));
+        kGradientPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 130, -1));
 
         jtxt_product_selling_price.setBackground(new java.awt.Color(0, 102, 102));
         jtxt_product_selling_price.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtxt_product_selling_price.setForeground(new java.awt.Color(255, 255, 255));
         jtxt_product_selling_price.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtxt_product_selling_price.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        kGradientPanel4.add(jtxt_product_selling_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 300, 30));
+        kGradientPanel4.add(jtxt_product_selling_price, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 300, 30));
 
         jbt_registerProduct.setBackground(new java.awt.Color(0, 102, 102));
         jbt_registerProduct.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -476,53 +495,56 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 jbt_registerProductActionPerformed(evt);
             }
         });
-        kGradientPanel4.add(jbt_registerProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 80, 30));
+        kGradientPanel4.add(jbt_registerProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 80, 30));
 
         jbtn_editProduct.setBackground(new java.awt.Color(255, 204, 51));
         jbtn_editProduct.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbtn_editProduct.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_editProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Edit_20px.png"))); // NOI18N
         jbtn_editProduct.setText("Edit");
-        kGradientPanel4.add(jbtn_editProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 80, 30));
+        kGradientPanel4.add(jbtn_editProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 110, 80, 30));
 
-        jbtn_updateprice.setBackground(new java.awt.Color(51, 153, 0));
+        jbtn_updateprice.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_updateprice.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbtn_updateprice.setForeground(new java.awt.Color(255, 255, 255));
-        jbtn_updateprice.setText("Update Price");
-        kGradientPanel4.add(jbtn_updateprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 280, 30));
+        jbtn_updateprice.setText("Update Qty");
+        kGradientPanel4.add(jbtn_updateprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, 130, 30));
 
         jbtn_deleteProduct1.setBackground(new java.awt.Color(153, 0, 51));
         jbtn_deleteProduct1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbtn_deleteProduct1.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_deleteProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete_20px.png"))); // NOI18N
         jbtn_deleteProduct1.setText("Delete");
-        kGradientPanel4.add(jbtn_deleteProduct1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 100, 30));
+        kGradientPanel4.add(jbtn_deleteProduct1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 110, 100, 30));
 
         jtxt_product_quantity.setBackground(new java.awt.Color(0, 102, 102));
         jtxt_product_quantity.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jtxt_product_quantity.setForeground(new java.awt.Color(255, 255, 255));
         jtxt_product_quantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jtxt_product_quantity.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(255, 255, 255)));
-        kGradientPanel4.add(jtxt_product_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 280, 30));
+        kGradientPanel4.add(jtxt_product_quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 280, 30));
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Product Quantity:");
-        kGradientPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 130, -1));
+        kGradientPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 130, -1));
 
         jbtn_search.setBackground(new java.awt.Color(255, 153, 0));
         jbtn_search.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jbtn_search.setForeground(new java.awt.Color(255, 255, 255));
         jbtn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_20px.png"))); // NOI18N
         jbtn_search.setText("Search");
-        kGradientPanel4.add(jbtn_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 280, 30));
+        kGradientPanel4.add(jbtn_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 280, 30));
+
+        jbtn_updateprice1.setBackground(new java.awt.Color(51, 153, 0));
+        jbtn_updateprice1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_updateprice1.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_updateprice1.setText("Update Price");
+        kGradientPanel4.add(jbtn_updateprice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 130, 30));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "#", "Product Type", "Product Category", "Products Name", "Quantity", "Purchasing Price", "Selling Price"
@@ -531,6 +553,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
             jTable2.getColumnModel().getColumn(0).setPreferredWidth(2);
+            jTable2.getColumnModel().getColumn(0).setHeaderValue("#");
+            jTable2.getColumnModel().getColumn(1).setHeaderValue("Product Type");
+            jTable2.getColumnModel().getColumn(2).setHeaderValue("Product Category");
+            jTable2.getColumnModel().getColumn(3).setHeaderValue("Products Name");
+            jTable2.getColumnModel().getColumn(4).setHeaderValue("Quantity");
+            jTable2.getColumnModel().getColumn(5).setHeaderValue("Purchasing Price");
+            jTable2.getColumnModel().getColumn(6).setHeaderValue("Selling Price");
         }
 
         javax.swing.GroupLayout ProductsLayout = new javax.swing.GroupLayout(Products);
@@ -571,14 +600,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
             }
         });
 
-        jbt_create_session1.setBackground(new java.awt.Color(255, 0, 102));
-        jbt_create_session1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jbt_create_session1.setForeground(new java.awt.Color(255, 255, 255));
-        jbt_create_session1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Delete_20px.png"))); // NOI18N
-        jbt_create_session1.setText("Delete Session");
-        jbt_create_session1.addActionListener(new java.awt.event.ActionListener() {
+        jbt_close_session1.setBackground(new java.awt.Color(255, 0, 102));
+        jbt_close_session1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbt_close_session1.setForeground(new java.awt.Color(255, 255, 255));
+        jbt_close_session1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Close Window_20px.png"))); // NOI18N
+        jbt_close_session1.setText("Close Session");
+        jbt_close_session1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbt_create_session1ActionPerformed(evt);
+                jbt_close_session1ActionPerformed(evt);
             }
         });
 
@@ -595,7 +624,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jbt_create_session1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbt_close_session1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbt_create_session, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(kGradientPanel5Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -619,7 +648,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addComponent(jbt_create_session, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
-                .addComponent(jbt_create_session1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbt_close_session1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -653,15 +682,63 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Sessions", Sessions);
 
+        kGradientPanel6.setkEndColor(new java.awt.Color(44, 83, 100));
+        kGradientPanel6.setkStartColor(new java.awt.Color(32, 58, 67));
+        kGradientPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Current Orders");
+        kGradientPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 109, -1));
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Order");
+        kGradientPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 110, 30));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/4.png"))); // NOI18N
+        kGradientPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 50));
+
+        jbtn_create_order.setBackground(new java.awt.Color(0, 102, 102));
+        jbtn_create_order.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtn_create_order.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_create_order.setText("Create Order");
+        jbtn_create_order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_create_orderActionPerformed(evt);
+            }
+        });
+        kGradientPanel6.add(jbtn_create_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 120, 30));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "#", "References", "Placed By", "Session", "Payment Status", "Total Amount", "Action"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(0).setMaxWidth(2);
+        }
+
         javax.swing.GroupLayout OrderLayout = new javax.swing.GroupLayout(Order);
         Order.setLayout(OrderLayout);
         OrderLayout.setHorizontalGroup(
             OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 888, Short.MAX_VALUE)
+            .addComponent(kGradientPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         OrderLayout.setVerticalGroup(
             OrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGroup(OrderLayout.createSequentialGroup()
+                .addComponent(kGradientPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Orders", Order);
@@ -719,6 +796,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         SessionHolder  getSession = new SessionHolder();
         jlabel_Name.setText(getSession.getUserName());
+        displayProductType();
     }//GEN-LAST:event_formWindowOpened
 
     private void jbtn_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_dashboardMouseClicked
@@ -743,17 +821,17 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
     private void jbtn_orderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_orderMouseClicked
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(5);
+        jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jbtn_orderMouseClicked
 
     private void jbtn_settingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_settingMouseClicked
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(6);
+        jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_jbtn_settingMouseClicked
 
     private void jbtn_reportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtn_reportMouseClicked
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(7);
+        jTabbedPane1.setSelectedIndex(6);
     }//GEN-LAST:event_jbtn_reportMouseClicked
 
     private void jbtn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_userActionPerformed
@@ -774,16 +852,122 @@ public class DashboardAdmin extends javax.swing.JFrame {
         xlg.setVisible(true);
     }//GEN-LAST:event_jbtn_logoutActionPerformed
 
-    private void jbt_create_session1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_create_session1ActionPerformed
+    private void jbt_close_session1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_close_session1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbt_create_session1ActionPerformed
+    }//GEN-LAST:event_jbt_close_session1ActionPerformed
 
     private void jbt_create_sessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_create_sessionActionPerformed
         // TODO add your handling code here:
+        Session sessObj = new Session();
+        sessionDao sessDao = new sessionDao();
+        SessionHolder sHolder = new SessionHolder();
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MMM-dd");
+        String str = formatter.format(date);
+        String s_reference = "";
+        int u_id = sHolder.getUserID();
+        int feedback = sessDao.countSession();
+        if (feedback != -1) {
+            feedback =feedback + 1;
+            if (feedback <10 ) {
+                s_reference = "Session/"+str+"/000"+feedback ;                
+            } 
+            else if(feedback >=10 && feedback < 100) 
+            {
+                s_reference = "Session/"+str+"/00"+feedback ;
+            }
+            else if(feedback >= 100 && feedback < 1000)
+            {
+                s_reference = "Session/"+str+"/0"+feedback ;
+            } 
+            else 
+            {
+                s_reference = "Session/"+str+"/"+feedback ;
+            }   
+            
+            sessObj.setSession_creator(u_id);
+            sessObj.setS_reference(s_reference);
+            
+            int countOpenSession = sessDao.countOpenSession();
+            
+            switch (countOpenSession) {
+                case 0:
+                    sessDao.createSession(sessObj);
+                    JOptionPane.showMessageDialog(this," SESSION CREATED SUCCSESSFULLY ");
+                    break;
+                case 1:
+                    JOptionPane.showMessageDialog(this," THERE IS AN OPEN SESSION");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(this,"SEVER ERROR","ERROR",1);
+                    break;
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this,"SEVER ERROR","ERROR",1);
+        }
+        
+        
+        
     }//GEN-LAST:event_jbt_create_sessionActionPerformed
 
     private void jbt_registerProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_registerProductActionPerformed
         // TODO add your handling code here:
+        
+        if(jcbox_producttype.getSelectedItem()== "")
+        {
+            JOptionPane.showMessageDialog(this, "PRODUCT TYPE IS REQUIRED");
+        }
+        else if(jcbox_productcategory.getSelectedItem()=="")
+        {
+            JOptionPane.showMessageDialog(this, "PRODUCT CATEGORY IS REQUIRED");
+        }
+        else if(jtxt_productname.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "PRODUCT NAME IS REQUIRED");
+        }
+        else if(jtxt_product_quantity.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "PRODUCT QUANTITY IS REQUIRED");
+        }
+        else if(jtxt_purchasing_price.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "PRODUCT PURCHASING PRICE IS REQUIRED");
+        }
+        else if(jtxt_product_selling_price.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "PRODUCT SELLING PRICE IS REQUIRED");
+        }
+        else
+        {
+            Products prodObj = new Products();
+            ProductsDao productObjDao = new ProductsDao();
+            String feedback ;
+            
+            String pt_id = jcbox_producttype.getSelectedItem().toString().substring(0,1);
+            String pc_id = jcbox_productcategory.getSelectedItem().toString().substring(0,1);
+            prodObj.setPt_id(Integer.parseInt(pt_id));
+            prodObj.setPc_id(Integer.parseInt(pc_id));
+            prodObj.setP_name(jtxt_productname.getText().toUpperCase().trim());
+            prodObj.setQty(Integer.parseInt(jtxt_product_quantity.getText().trim()));
+            prodObj.setP_purchase_price(Float.parseFloat(jtxt_purchasing_price.getText().trim()));
+            prodObj.setP_selling_price(Float.parseFloat(jtxt_product_selling_price.getText().trim()));
+            
+            boolean check = productObjDao.checkIfProductExist(prodObj);
+            if (check) {
+                feedback = productObjDao.productsInsert(prodObj);
+                JOptionPane.showMessageDialog(this, prodObj.getP_name()+" REGISTERED SUCCESSFULLY");
+
+            } else {
+                JOptionPane.showMessageDialog(this, "PRODUCT WITH "+prodObj.getP_name()+" NAME EXISTS");
+            }
+            
+            
+        
+        
+        
+        
+        }
     }//GEN-LAST:event_jbt_registerProductActionPerformed
 
     private void jbt_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_registerActionPerformed
@@ -795,9 +979,103 @@ public class DashboardAdmin extends javax.swing.JFrame {
         else if(jtxt_phone.getText().trim().isEmpty())
         {
 
-        }else if(jtxt_email.getText().trim().isEmpty()){}
+        }
+        else if(jtxt_email.getText().trim().isEmpty())
+        {
+        
+            
+            
+            
+            
+        }
 
     }//GEN-LAST:event_jbt_registerActionPerformed
+    String selectedType = "";
+    public void displayProductType()
+    {
+        P_type ptype = new P_type();
+        P_typeDao ptypeDao = new P_typeDao();
+        List<P_type> ptypeResult = ptypeDao.selectProductType(ptype);
+        
+        if(ptypeResult != null)
+        {
+            for(P_type pTypeObj: ptypeResult)
+            {
+            String txtcomb = pTypeObj.getP_type_name();
+            int ptypId = pTypeObj.getP_type_id();
+            String jcomboItem = ptypId+"-"+txtcomb;
+            jcbox_producttype.addItem(jcomboItem);
+            }
+            
+            
+        }else
+        {
+            JOptionPane.showMessageDialog(this,"No item selected","error",1);
+        }
+        
+    
+    }
+    
+    public void displayCategory()
+    {
+    P_type ptype = new P_type();
+    
+    
+    }
+    
+    private void jcbox_producttypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbox_producttypeActionPerformed
+        // TODO add your handling code here:
+        //COMBOX1
+    }//GEN-LAST:event_jcbox_producttypeActionPerformed
+
+    private void jbtn_settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_settingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_settingActionPerformed
+
+    private void jcbox_producttypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbox_producttypeItemStateChanged
+        // TODO add your handling code here:
+        P_type ptype = new P_type();
+        P_typeDao ptypedao = new P_typeDao();
+        
+        if(jcbox_producttype.getSelectedItem().toString().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"THERE NO PRODUCTS TYPE YET");
+        }
+        else
+        {
+            String gettypID = jcbox_producttype.getSelectedItem().toString().substring(0, 1);
+//            JOptionPane.showMessageDialog(this, gettypID);
+            
+            ptype.setP_type_id(Integer.parseInt(gettypID));
+            P_category pCategory = new P_category();
+            P_categoryDAO pCategoryDao = new P_categoryDAO();
+            List<P_category> categoryResult = pCategoryDao.selectCategoryByType(ptype);
+            
+            if(categoryResult != null)
+            { 
+               jcbox_productcategory.removeAllItems();
+               for(P_category catOBJ: categoryResult)
+               {
+               int pCatgID = catOBJ.getPc_id();
+               String pCatName = catOBJ.getPc_name();              
+               String categoryItem = pCatgID+"-"+pCatName;             
+               jcbox_productcategory.addItem(categoryItem);
+               }
+              
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"THERE IS NO AVAILBLE CATECORY");
+            }
+            
+        }
+       
+        
+    }//GEN-LAST:event_jcbox_producttypeItemStateChanged
+
+    private void jbtn_create_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_create_orderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtn_create_orderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -851,7 +1129,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -863,14 +1144,17 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JButton jbt_close_session1;
     private javax.swing.JButton jbt_create_session;
-    private javax.swing.JButton jbt_create_session1;
     private javax.swing.JButton jbt_product;
     private javax.swing.JButton jbt_register;
     private javax.swing.JButton jbt_registerProduct;
+    private javax.swing.JButton jbtn_create_order;
     private javax.swing.JButton jbtn_dashboard;
     private javax.swing.JButton jbtn_delete;
     private javax.swing.JButton jbtn_deleteProduct1;
@@ -883,6 +1167,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_session;
     private javax.swing.JButton jbtn_setting;
     private javax.swing.JButton jbtn_updateprice;
+    private javax.swing.JButton jbtn_updateprice1;
     private javax.swing.JButton jbtn_user;
     private javax.swing.JComboBox<String> jcbox_productcategory;
     private javax.swing.JComboBox<String> jcbox_producttype;
@@ -904,5 +1189,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private keeptoo.KGradientPanel kGradientPanel3;
     private keeptoo.KGradientPanel kGradientPanel4;
     private keeptoo.KGradientPanel kGradientPanel5;
+    private keeptoo.KGradientPanel kGradientPanel6;
     // End of variables declaration//GEN-END:variables
 }

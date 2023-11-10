@@ -232,6 +232,7 @@ public class xl_login extends javax.swing.JFrame {
                 {                
                 JOptionPane.showMessageDialog(this,"Welcome to X-Lounge MIS");
                 sHolder.setUserName(usernames);
+                sHolder.setUserID(id);
                 DashboardAdmin dshA = new DashboardAdmin();
                 dshA.setVisible(true);
                 this.setVisible(false);
@@ -240,6 +241,7 @@ public class xl_login extends javax.swing.JFrame {
                 {
                  JOptionPane.showMessageDialog(this,"Welcome to X-Lounge MIS");
                  sHolder.setUserName(usernames);
+                 sHolder.setUserID(id);
                  DashboardWaiter dshw = new DashboardWaiter();
                  dshw.setVisible(true);
                  this.setVisible(false);
